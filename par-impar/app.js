@@ -1,6 +1,6 @@
 /********************************************************************
- * Objetivo: Criar um sistema para gerenciar o cáculo de uma tabuada
- * Data: 13/02/2023
+ * Objetivo: Criar um sistema que gerencie números pares e impares
+ * Data: /02/2023
  * Autor: Guilherme Lima
  * versão: 1.0
  ********************************************************************/

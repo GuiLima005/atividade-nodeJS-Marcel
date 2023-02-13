@@ -39,15 +39,15 @@ entradaDados.question('Nome do Aluno: \n', function (alu) {
                             entradaDados.question('Nota do segundo bimestre [Digite entre 0 a 100]:\n', function (bimestre2) {
                                 let nota2 = Number(bimestre2)
 
-                                entradaDados.question('Nota do terceiro bimestre (Digite entre 0 a 100):\n', function (bimestre3) {
+                                entradaDados.question('Nota do terceiro bimestre [Digite entre 0 a 100]:\n', function (bimestre3) {
                                     let nota3 = Number(bimestre3)
 
-                                    entradaDados.question('Nota do quarto bimestre (Digite entre 0 a 100):\n', function (bimestre4) {
+                                    entradaDados.question('Nota do quarto bimestre [Digite entre 0 a 100]:\n', function (bimestre4) {
                                         let nota4 = Number(bimestre4)
 
-                                        let media = funcoes.calcularMedia(nota1, nota2, nota3, nota4)
-                                        let string = funcoes.erroEscrita(aluno, sexoAlu, professor, sexoPro, curso, disciplina)
-                                        let numero = funcoes.erroNumero(nota1, nota2, nota3, nota4)
+                                        funcoes.calcularMedia(nota1, nota2, nota3, nota4)
+                                        funcoes.erroEscrita(aluno, sexoAlu, professor, sexoPro, curso, disciplina)
+                                        funcoes.erroNumero(nota1, nota2, nota3, nota4)
                                     })
                                 })
                             })

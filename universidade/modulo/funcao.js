@@ -1,9 +1,9 @@
-/******************************************
+/***********************************************************************************
  * Objetivo: Criar um sistema que gerencie as médias escolares de uma universidade
  * Data: 10/02/2023
  * Autor: Guilherme Lima
  * versão: 1.0
- *****************************************/
+ **********************************************************************************/
 
 const { isString } = require("util")
 
@@ -17,35 +17,36 @@ const calcularMedia = function (bimestre1, bimestre2, bimestre3, bimestre4) {
 
     let media
 
-    media = (nota1 + nota2 + nota3 + nota4) / 2
+    media = (nota1 + nota2 + nota3 + nota4) / 4
 
     console.log(media)
 }
 
-// Função para aceitar somente Strings
+// Função para correção de Strings
 const erroEscrita = function (alu, sexoA, pro, sexoP, cur, disci) {
 
     let aluno = alu
-    let sexoAlu = sexoA
+    let sexoAlu = sexoA.toUpperCase()
     let professor = pro
-    let sexoPro = sexoP
+    let sexoPro = sexoP.toUpperCase()
     let curso = cur
     let disciplina = disci
 
     if (aluno == "" || sexoAlu == "" || professor == "" || sexoPro == "" || curso == "" || disciplina == "") {
         console.log('ERRO: É necessario que você preencha todos os dados.')
 
-    } else if (sexoAlu != 'MASCULINO' || sexoAlu != 'FEMININO') {
-        console.log('ERRO: Confira sua escrita')
+    } else if (sexoAlu != 'MASCULINO' && sexoAlu != 'FEMININO') {
+        console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
 
-    } else if (sexoPro != 'MASCULINO' || sexoPro != 'FEMININO') {
-        console.log('ERRO: Confira sua escrita')
+    } else if (sexoPro != 'MASCULINO' && sexoPro != 'FEMININO') {
+        console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
 
-    } else if (isString(aluno) || isString(sexoAlu) || isString(professor) || isString(sexoPro) || isString(curso) || isString(disciplina)) {
+    } else if (!isString(aluno) || !isString(sexoAlu) || !isString(professor) || !isString(sexoPro) || !isString(curso) || !isString(disciplina)) {
         console.log('ERRO: Você preencheu valores numericos no lugar errado.')
     }
 }
 
+// Função para correção de Números
 const erroNumero = function (nota1, nota2, nota3, nota4) {
 
     let bimestre1 = Number(nota1)
@@ -68,10 +69,22 @@ const erroNumero = function (nota1, nota2, nota3, nota4) {
     }
 }
 
+// Função para chamar o Exame Final
+const exameFinal = function (nota1) {
+
+    let mediaExame
+    let notaExame = Number(nota1)
+    
+
+
+
+}
+
 // calcularMedia(50, 50, 50, 50)
 
 module.exports = {
     calcularMedia,
     erroEscrita,
-    erroNumero
+    erroNumero,
+    exameFinal
 }
