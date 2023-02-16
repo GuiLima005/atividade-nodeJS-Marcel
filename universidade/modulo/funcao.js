@@ -47,12 +47,12 @@ const erroEscrita = function (alu, sexoA, pro, sexoP, cur, disci) {
 }
 
 // Função para correção de Números
-const erroNumero = function (nota1, nota2, nota3, nota4) {
+const erroNumero = function (bimestre1, bimestre2, bimestre3, bimestre4) {
 
-    let bimestre1 = Number(nota1)
-    let bimestre2 = Number(nota2)
-    let bimestre3 = Number(nota3)
-    let bimestre4 = Number(nota4)
+    let nota1 = Number(bimestre1)
+    let nota2 = Number(bimestre2)
+    let nota3 = Number(bimestre3)
+    let nota4 = Number(bimestre4)
     let media
 
     if (bimestre1 == "" || bimestre2 == "" || bimestre3 == "" || bimestre4 == "") {
