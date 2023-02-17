@@ -19,7 +19,7 @@ const calcularMedia = function (bimestre1, bimestre2, bimestre3, bimestre4) {
 
     media = (nota1 + nota2 + nota3 + nota4) / 4
 
-    console.log(media)
+    console.log("Sua media é:" + media)
 }
 
 // Função para correção de Strings
@@ -69,16 +69,18 @@ const erroNumero = function (bimestre1, bimestre2, bimestre3, bimestre4) {
     }
 }
 
-// Função para chamar o Exame Final
-const exameFinal = function (nota1) {
+// Função para calcular a media do exame 
+const mediaExame = function (notaExa, med) {
 
+    let media = med
     let mediaExame
-    let notaExame = Number(nota1)
-    
+    let notaExame = Number(notaExa)
 
-
-
+    mediaExame = ((notaExame + media) / 2)
+    console.log(mediaExame)
 }
+
+// mediaExame(80, 55)
 
 // calcularMedia(50, 50, 50, 50)
 
@@ -86,5 +88,6 @@ module.exports = {
     calcularMedia,
     erroEscrita,
     erroNumero,
-    exameFinal
+    mediaExame
+    
 }

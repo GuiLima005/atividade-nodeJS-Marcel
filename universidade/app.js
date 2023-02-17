@@ -8,6 +8,8 @@
 var funcoes = require('./modulo/funcao.js')
 
 var readline = require('readline')
+const { calcularMedia } = require('./modulo/funcao.js')
+const funcao = require('./modulo/funcao.js')
 
 var entradaDados = readline.createInterface({
     input: process.stdin,
@@ -18,13 +20,13 @@ var entradaDados = readline.createInterface({
 entradaDados.question('Nome do Aluno: \n', function (alu) {
     let aluno = alu
 
-    entradaDados.question('Sexo do aluno(a): [MASCULINO | FEMINO] \n', function (sexoA) {
+    entradaDados.question('Sexo do aluno(a): [MASCULINO | FEMININO] \n', function (sexoA) {
         let sexoAlu = sexoA.toUpperCase()
 
         entradaDados.question('Nome do professor(a): \n', function (pro) {
             let professor = pro
 
-            entradaDados.question('Sexo do professor(a): [MASCULINO | FEMINO] \n', function (sexoP) {
+            entradaDados.question('Sexo do professor(a): [MASCULINO | FEMININO] \n', function (sexoP) {
                 let sexoPro = sexoP.toUpperCase()
 
                 entradaDados.question('Nome do curso: \n', function (cur) {
@@ -44,10 +46,13 @@ entradaDados.question('Nome do Aluno: \n', function (alu) {
 
                                     entradaDados.question('Nota do quarto bimestre [Digite entre 0 a 100]:\n', function (bimestre4) {
                                         let nota4 = Number(bimestre4)
-
+                                
                                         funcoes.calcularMedia(nota1, nota2, nota3, nota4)
                                         funcoes.erroEscrita(aluno, sexoAlu, professor, sexoPro, curso, disciplina)
                                         funcoes.erroNumero(nota1, nota2, nota3, nota4)
+                                        entradaDados.close()
+
+                                        
                                     })
                                 })
                             })
