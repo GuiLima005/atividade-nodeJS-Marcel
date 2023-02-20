@@ -15,11 +15,9 @@ const calcularMedia = function (bimestre1, bimestre2, bimestre3, bimestre4) {
     let nota3 = Number(bimestre3)
     let nota4 = Number(bimestre4)
 
-    let media
-
     media = (nota1 + nota2 + nota3 + nota4) / 4
 
-    console.log("Sua media é:" + media)
+    return media
 }
 
 // Função para correção de Strings
@@ -35,11 +33,11 @@ const erroEscrita = function (alu, sexoA, pro, sexoP, cur, disci) {
     if (aluno == "" || sexoAlu == "" || professor == "" || sexoPro == "" || curso == "" || disciplina == "") {
         console.log('ERRO: É necessario que você preencha todos os dados.')
 
-    } else if (sexoAlu != 'MASCULINO' && sexoAlu != 'FEMININO') {
-        console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
+        // } else if (sexoAlu != 'MASCULINO' && sexoAlu != 'FEMININO') {
+        //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
 
-    } else if (sexoPro != 'MASCULINO' && sexoPro != 'FEMININO') {
-        console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
+        // } else if (sexoPro != 'MASCULINO' && sexoPro != 'FEMININO') {
+        //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
 
     } else if (!isString(aluno) || !isString(sexoAlu) || !isString(professor) || !isString(sexoPro) || !isString(curso) || !isString(disciplina)) {
         console.log('ERRO: Você preencheu valores numericos no lugar errado.')
@@ -53,31 +51,112 @@ const erroNumero = function (bimestre1, bimestre2, bimestre3, bimestre4) {
     let nota2 = Number(bimestre2)
     let nota3 = Number(bimestre3)
     let nota4 = Number(bimestre4)
-    let media
 
-    if (bimestre1 == "" || bimestre2 == "" || bimestre3 == "" || bimestre4 == "") {
+    if (nota1 == "" || nota2 == "" || nota3 == "" || nota4 == "") {
         console.log('ERRO: É necessario que você preencha todos os dados.')
 
-    } else if (isNaN(bimestre1) || isNaN(bimestre2) || isNaN(bimestre3) || isNaN(bimestre4)) {
+    } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
         console.log('ERRO: Não é possivel calcular sem a entrada de valores numericos')
 
-    } else if (bimestre1 < 0 || bimestre2 < 0 || bimestre3 < 0 || bimestre4 < 0) {
+    } else if (nota1 < 0 || nota2 < 0 || nota3 < 0 || nota4 < 0) {
         console.log('ERRO: Digite somente notas de 0 a 100')
 
-    } else if (bimestre1 > 100 || bimestre2 > 100 || bimestre3 > 100 || bimestre4 > 100) {
+    } else if (nota1 > 100 || nota2 > 100 || nota3 > 100 || nota4 > 100) {
         console.log('ERRO: Digite somente notas de 0 a 100')
     }
 }
 
 // Função para calcular a media do exame 
-const mediaExame = function (notaExa, med) {
+const calcularExame = function (notaExa, media) {
 
-    let media = med
-    let mediaExame
+    let med = Number(media)
     let notaExame = Number(notaExa)
 
-    mediaExame = ((notaExame + media) / 2)
-    console.log(mediaExame)
+    mediaExame = (notaExame + med) / 2
+
+    return mediaExame
+}
+
+const statusAprovado = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, media, nota1, nota2, nota3, nota4) {
+    console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n');
+
+    if (sexoAlu == 'Aluna') {
+        console.log('A aluna ' + aluno + ' foi aprovada na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas da aluna: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4)
+        console.log('media final: ' + media)
+
+    } else if (sexoAlu == 'Aluno') {
+        console.log('O aluno ' + aluno + ' foi aprovado na disciplina ' + disciplina)
+        console.log('Curso: ' + curso);
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas do aluno: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4)
+        console.log('media final: ' + media)
+    }
+
+}
+
+const statusReprovado = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, media, nota1, nota2, nota3, nota4) {
+    console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
+
+    if (sexoAlu == 'Aluna') {
+        console.log('A aluna ' + aluno + ' foi reprovada na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas da aluna: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4)
+        console.log('media final: ' + media)
+
+    } else if (sexoAlu == 'Aluno') {
+        console.log('O aluno ' + aluno + ' foi reprovado na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas do aluno: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4)
+        console.log('media final: ' + media)
+    }
+}
+
+const statusAprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, mediaExame, disciplina, notaExame, nota1, nota2, nota3, nota4) {
+    console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
+
+    if (sexoAlu == 'Aluna') {
+        console.log('A aluna ' + aluno + ' foi aprovada na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas da aluna:' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + ', ')
+        console.log('Nota do exame: ' + notaExame)
+        console.log('media final: ' + mediaExame)
+
+    } else if (sexoAlu == 'Aluno') {
+        console.log('O aluno ' + aluno + ' foi aprovado na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas do aluno:' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + ', ')
+        console.log('Nota do exame: ' + notaExame)
+        console.log('media final: ' + mediaExame)
+    }
+}
+
+
+const statusReprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, mediaExame, disciplina, notaExame, nota1, nota2, nota3, nota4) {
+    console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
+
+    if (sexoAlu == 'Aluna') {
+        console.log('A aluna ' + aluno + ' foi reprovada na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas da aluna:' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + ', ')
+        console.log('Nota do exame: ' + notaExame)
+        console.log('media final: ' + mediaExame)
+
+    } else if (sexoAlu == 'Aluno') {
+        console.log('O aluno ' + aluno + ' foi reprovado na disciplina ' + disciplina)
+        console.log('Curso: ' + curso)
+        console.log(sexoPro + ': ' + professor)
+        console.log('Notas do aluno:' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + ', ')
+        console.log('Nota do exame: ' + notaExame)
+        console.log('media final: ' + mediaExame)
+    }
 }
 
 // mediaExame(80, 55)
@@ -88,6 +167,9 @@ module.exports = {
     calcularMedia,
     erroEscrita,
     erroNumero,
-    mediaExame
-    
+    calcularExame,
+    statusAprovado,
+    statusReprovado,
+    statusAprovadoExame,
+    statusReprovadoExame
 }

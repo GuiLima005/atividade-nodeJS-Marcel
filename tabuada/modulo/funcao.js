@@ -26,6 +26,7 @@ const calcularTabuada = function(multiplicandoInicio, multiplicandoFim, contador
         }
         multiplicandoIni++
     }
+     console.log('\nFim da tabuada')
 }
 
 const validacao = function(inicioTabuada, FinalTabuada, inicioContador, contadorFim) {

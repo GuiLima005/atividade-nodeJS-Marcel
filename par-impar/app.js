@@ -21,7 +21,6 @@ entradaDados.question('Digite o numero inicial [ENTRE 0 E 500]:\n', function (va
 
         let valorMaximo = parseInt(valorFim)
 
-        funcoes.numerosParImpar(valorMinimo, valorMaximo)
         funcoes.correcao(valorMinimo, valorMaximo)
         entradaDados.close()
 

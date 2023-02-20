@@ -12,7 +12,6 @@ const numerosParImpar = function (valorMin, valorMax, escolha) {
     let valorMinimo = valorMin
 
     if (valor == 1) {
-        console.log('*Pares*\n')
 
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 == 0)
@@ -28,12 +27,12 @@ const numerosParImpar = function (valorMin, valorMax, escolha) {
 
     } else {
 
-        console.log('--*Números Pares*--\n')
+        console.log('\nNúmeros Pares*--\n')
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 == 0)
                 console.log(`-----  ${i}  -----`)
         }
-        console.log('\n--*Números Ímpares*--\n')
+        console.log('\nNúmeros Ímpares\n')
 
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 != 0) {
@@ -57,6 +56,8 @@ const correcao = function (valorMaximo, valorMinimo) {
 
     } else if (valorMinimo < valorMaximo) {
         console.log('ERRO: O número inicial não pode ser maior que o final')
+    } else {
+        console.log(numerosParImpar(valorMaximo, valorMinimo))
     }
 }
 
