@@ -15,28 +15,28 @@ const numerosParImpar = function (valorMin, valorMax, escolha) {
 
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 == 0)
-                console.log(`-----  ${i}  -----`)
+                console.log(` -----  ${i}  -----`)
         }
 
     } else if (valor == 2) {
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 != 0) {
-                console.log(`-----  ${i}  -----`)
+                console.log(` -----  ${i}  -----`)
             }
         }
 
     } else {
 
-        console.log('\nNúmeros Pares*--\n')
+        console.log('\n-------*Números Pares*-------\n')
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 == 0)
-                console.log(`-----  ${i}  -----`)
+                console.log(` -----  ${i}  -----`)
         }
-        console.log('\nNúmeros Ímpares\n')
+        console.log('\n-------*Números Ímpares*-------\n')
 
         for (i = valorMinimo; i <= valorMaximo; i++) {
             if (i % 2 != 0) {
-                console.log(`-----  ${i}  -----`)
+                console.log(` -----  ${i}  -----`)
 
             }
         }

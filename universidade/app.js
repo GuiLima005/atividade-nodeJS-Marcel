@@ -1,10 +1,11 @@
-/******************************************
+/************************************************************************************
  * Objetivo: Criar um sistema que gerencie as médias escolares de uma universidade
  * Data: 10/02/2023
  * Autor: Guilherme Lima
  * versão: 1.0
- *****************************************/
+ ************************************************************************************/
 
+// import do arquivo com as funções
 var funcoes = require('./modulo/funcao.js')
 
 var readline = require('readline')
@@ -13,7 +14,7 @@ var entradaDados = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
-console.log('\n-----------Cadastro de aluno-----------\n')
+console.log('\n-----------Cadastro de aluno(a)-----------\n')
 
 entradaDados.question('Nome do Aluno(a): \n', function (alu) {
     let aluno = alu
@@ -83,9 +84,9 @@ entradaDados.question('Nome do Aluno(a): \n', function (alu) {
                                             funcoes.statusReprovado(sexoAlu, aluno, curso, sexoPro, professor, disciplina, media, nota1, nota2, nota3, nota4)
                                             entradaDados.close()
 
-                                        } else if (media <= 69 || media >= 50) {
+                                        }  else if (media <= 69 || media >= 50) {
 
-                                            console.log('\n    É necessario que o aluno(a) faça um exame de recuperação   \n')
+                                            console.log('\n------É necessario que o aluno(a) faça um exame de recuperação------\n')
 
                                             entradaDados.question('Nota do exame de recuperação [Digite entre 0 a 100]\n', function (notaExa) {
                                                 let notaExame = Number(notaExa)
@@ -93,15 +94,15 @@ entradaDados.question('Nome do Aluno(a): \n', function (alu) {
 
                                                 mediaExame = funcoes.calcularExame(notaExame, media)
 
-                                                console.log(notaExame)
-                                                console.log(mediaExame)
+                                                // console.log(notaExame) Teste para saber se a nota do Exame estava chegando
+                                                // console.log(mediaExame) Teste para saber se a media do Exame estava chegando
 
                                                 if (mediaExame >= 60) {
-                                                    funcoes.statusAprovadoExame(sexoAlu, aluno, curso, sexoPro, professor, disciplina,  nota1, nota2, nota3, nota4, mediaExame, notaExame)
+                                                    funcoes.statusAprovadoExame(sexoAlu, aluno, curso, sexoPro, professor, disciplina, notaExame, nota1, nota2, nota3, nota4)
                                                     entradaDados.close()
 
                                                 } else if (mediaExame < 60) {
-                                                    funcoes.statusReprovadoExame(sexoAlu, aluno, curso, sexoPro, professor, disciplina,  mediaExame, nota1, nota2, nota3, nota4, notaExame)
+                                                    funcoes.statusReprovadoExame(sexoAlu, aluno, curso, sexoPro, professor, disciplina, notaExame, nota1, nota2, nota3, nota4)
                                                     entradaDados.close()
                                                 }
                                             })

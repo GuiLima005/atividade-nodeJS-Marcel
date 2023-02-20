@@ -1,9 +1,9 @@
-/***********************************************************************************
+/************************************************************************************
  * Objetivo: Criar um sistema que gerencie as médias escolares de uma universidade
  * Data: 10/02/2023
  * Autor: Guilherme Lima
  * versão: 1.0
- **********************************************************************************/
+ ************************************************************************************/
 
 const { isString } = require("util")
 
@@ -33,11 +33,10 @@ const erroEscrita = function (alu, sexoA, pro, sexoP, cur, disci) {
     if (aluno == "" || sexoAlu == "" || professor == "" || sexoPro == "" || curso == "" || disciplina == "") {
         console.log('ERRO: É necessario que você preencha todos os dados.')
 
-        // } else if (sexoAlu != 'MASCULINO' && sexoAlu != 'FEMININO') {
-        //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
-
-        // } else if (sexoPro != 'MASCULINO' && sexoPro != 'FEMININO') {
-        //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
+    // } else if (sexoAlu != 'MASCULINO' && sexoAlu != 'FEMININO') {
+    //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
+    // } else if (sexoPro != 'MASCULINO' && sexoPro != 'FEMININO') {
+    //     console.log('ERRO: Digite apenas MASCULINO OU FEMININO')
 
     } else if (!isString(aluno) || !isString(sexoAlu) || !isString(professor) || !isString(sexoPro) || !isString(curso) || !isString(disciplina)) {
         console.log('ERRO: Você preencheu valores numericos no lugar errado.')
@@ -77,6 +76,7 @@ const calcularExame = function (notaExa, media) {
     return mediaExame
 }
 
+// Função para mostrar aluno(a) aprovado(a) sem o Exame 
 const statusAprovado = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, media, nota1, nota2, nota3, nota4) {
     console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n');
 
@@ -97,6 +97,7 @@ const statusAprovado = function (sexoAlu, aluno, curso, sexoPro, professor, disc
 
 }
 
+// Função para mostrar aluno(a) reprovado(a) sem o Exame 
 const statusReprovado = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, media, nota1, nota2, nota3, nota4) {
     console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
 
@@ -116,7 +117,8 @@ const statusReprovado = function (sexoAlu, aluno, curso, sexoPro, professor, dis
     }
 }
 
-const statusAprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, mediaExame, disciplina, notaExame, nota1, nota2, nota3, nota4) {
+// Função para mostrar aluno(a) aprovado(a) com o Exame 
+const statusAprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, notaExame, nota1, nota2, nota3, nota4) {
     console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
 
     if (sexoAlu == 'Aluna') {
@@ -137,8 +139,8 @@ const statusAprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor,
     }
 }
 
-
-const statusReprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, mediaExame, disciplina, notaExame, nota1, nota2, nota3, nota4) {
+// Função para mostrar aluno(a) reprovado(a) com o Exame 
+const statusReprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor, disciplina, notaExame, nota1, nota2, nota3, nota4) {
     console.log('\n---------------- RELATORIO DO ALUNO(a) ---------------------------\n')
 
     if (sexoAlu == 'Aluna') {
@@ -159,10 +161,11 @@ const statusReprovadoExame = function (sexoAlu, aluno, curso, sexoPro, professor
     }
 }
 
-// mediaExame(80, 55)
+// mediaExame(80, 55) Teste da função 
 
-// calcularMedia(50, 50, 50, 50)
+// calcularMedia(50, 50, 50, 50) //Teste da função 
 
+// Deixar as funções publicas
 module.exports = {
     calcularMedia,
     erroEscrita,

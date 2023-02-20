@@ -13,11 +13,13 @@ var entradaDados = readline.createInterface({
     output: process.stdout
 })
 
-entradaDados.question('Digite o numero inicial [ENTRE 0 E 500]:\n', function (valorInicio) {
+console.log('Gerenciamento de números pares e imapares')
+
+entradaDados.question('Digite o número inicial [ENTRE 0 E 500]:\n', function (valorInicio) {
 
     let valorMinimo = parseInt(valorInicio)
     
-    entradaDados.question('Digite o valor final [ENTRE 100 E 1000]:\n', function (valorFim) {
+    entradaDados.question('Digite o número final [ENTRE 100 E 1000]:\n', function (valorFim) {
 
         let valorMaximo = parseInt(valorFim)
 
