@@ -13,7 +13,7 @@ var entradaDados = readline.createInterface({
     output: process.stdout
 })
 
-console.log('Gerenciamento de números pares e imapares')
+console.log('\nGerenciamento de números pares e imapares\n')
 
 entradaDados.question('Digite o número inicial [ENTRE 0 E 500]:\n', function (valorInicio) {
 
